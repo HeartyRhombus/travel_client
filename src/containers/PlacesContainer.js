@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import PlaceComponent from '../components/PlaceComponent'
+import { getPlaces } from '../actions/placeActions'
 class PlacesContainer extends Component {
 
     render() {
@@ -26,4 +27,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(PlacesContainer);
+export default connect(mapStateToProps, { getPlaces })(PlacesContainer);
