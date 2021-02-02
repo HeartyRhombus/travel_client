@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// connect to store
+import { connect } from 'react-redux'
 // map thru places state to render place components
 class PlacesContainer extends Component {
     render() {
@@ -11,4 +11,6 @@ class PlacesContainer extends Component {
     }
 }
 
-export default PlacesContainer;
+
+
+export default connect(mapStateToProps)(PlacesContainer);
