@@ -18,7 +18,7 @@ class PlacesContainer extends Component {
 
         return (
             <div>
-                This is the places container
+                {/* This is the places container */}
                 {placesList}
             </div>
         );
