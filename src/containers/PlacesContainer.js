@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import PlaceComponent from '../components/PlaceComponent'
-import { getPlaces } from '../actions/placeActions'
+import { fetchPlaces } from '../actions/placeActions'
 class PlacesContainer extends Component {
+
+    componentDidMount(){
+        this.props.fetchPlaces()
+    }
 
     render() {
 
@@ -15,6 +19,7 @@ class PlacesContainer extends Component {
         return (
             <div>
                 This is the places container
+                {placesList}
             </div>
         );
     }
@@ -27,4 +32,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getPlaces })(PlacesContainer);
+export default connect(mapStateToProps, { fetchPlaces } )(PlacesContainer);
