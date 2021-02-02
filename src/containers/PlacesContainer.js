@@ -11,6 +11,11 @@ class PlacesContainer extends Component {
     }
 }
 
-
+const mapStateToProps = state => {
+    console.log(state.placeReducer.places)
+    return {
+        places: state.placeReducer.places
+    }
+}
 
 export default connect(mapStateToProps)(PlacesContainer);
