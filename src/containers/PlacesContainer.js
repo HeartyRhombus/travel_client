@@ -26,7 +26,7 @@ class PlacesContainer extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state.placeReducer.places)
+    // console.log(state.placeReducer.places)
     return {
         places: state.placeReducer.places
     }

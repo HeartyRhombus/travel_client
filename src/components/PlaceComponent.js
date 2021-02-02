@@ -1,9 +1,10 @@
 import React from 'react'
 
-const PlaceComponent = (props) => {
+const PlaceComponent = ( {place} ) => {
+    // console.log(place)
     return (
         <div>
-            Horray you've reached a place component!
+            {place.city}, {place.country}, {place.visited ? "Yes, I've been here!" : "Not Visted Yet"}
         </div>
     )
 }
