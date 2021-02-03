@@ -20,6 +20,7 @@ class EventsContainer extends Component {
 
         return (
             <div>
+            <h3>Things To Do:</h3>
                 {/* You have reached the events container! */}
                 {eventsList}
             </div>
