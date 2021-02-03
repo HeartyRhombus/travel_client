@@ -35,8 +35,7 @@ class PlacesForm extends Component {
     handleSubmit = event => {
         event.preventDefault()
         const place = {...this.state.place}
-        console.log(place)
-        // this.props.addPlace(place)
+        this.props.addPlace(place)
     }
 
     render() {
