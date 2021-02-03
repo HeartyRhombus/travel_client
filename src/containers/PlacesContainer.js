@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import PlaceComponent from '../components/PlaceComponent'
+import PlacesForm from './PlacesForm'
 import { fetchPlaces } from '../actions/placeActions'
 class PlacesContainer extends Component {
 
@@ -18,8 +19,15 @@ class PlacesContainer extends Component {
 
         return (
             <div>
-                {/* This is the places container */}
-                {placesList}
+                <hr/>
+                <div>
+                    Add A Destination:
+                    <PlacesForm />
+                </div>
+                <hr/>
+                <div>
+                    {placesList}
+                </div>
             </div>
         );
     }
