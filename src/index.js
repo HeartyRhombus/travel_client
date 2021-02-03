@@ -9,7 +9,8 @@ import thunk from 'redux-thunk'
 import rootReducer from './reducers/rootReducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import PlacesContainer from './containers/PlacesContainer';
+import PlacesContainer from './containers/PlacesContainer'
+import EventsContainer from './containers/EventsContainer'
 
 const store = createStore(
   rootReducer,
@@ -22,8 +23,7 @@ ReactDOM.render(
       <div>
       <Route exact path="/" component={App} />
       <Route exact path='/places' component={PlacesContainer} />
-      {/* <Route path='/places/id' component={PlaceComponent} />
-      <Route exact path='/events' component={EventsContainer} /> */}
+      <Route exact path='/events' component={EventsContainer} />
       </div>
     </Router>
   </Provider>,
