@@ -23,9 +23,4 @@ export const addPlace = (place) => {
             .then(resp => resp.json())
             .then(place => dispatch({ type: 'PLACE_ADDED', place }))
     }
-
-    // return {
-    //     type: 'ADD_PLACE',
-    //     place
-    // }
 }
