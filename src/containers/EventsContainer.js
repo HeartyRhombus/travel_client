@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 class EventsContainer extends Component {
     render() {
@@ -10,4 +11,10 @@ class EventsContainer extends Component {
     }
 }
 
-export default EventsContainer;
+const mapStateToProps = state => {
+    return {
+        events: state.eventReducer.events
+    }
+}
+
+export default connect(mapStateToProps)(EventsContainer);
