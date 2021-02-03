@@ -1,29 +1,47 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { addPlace } from '../actions/placeActions'
 
 class PlacesForm extends Component {
 
     state = {
-        city: "", 
-        country: "",
-        visited: false
+        place:{
+            city: "", 
+            country: "",
+            visited: false
+        }
     }
 
     handleChange = event => {
         this.setState({
-            [event.target.name]: event.target.value
+            ...this.state,
+            place: {
+                ...this.state.place,
+                [event.target.name]: event.target.value
+            }
         })
     }
 
     handleToggle = event => {
-        console.log(event.target.checked)
         this.setState({
-            visited: event.target.checked
+            ...this.state,
+            place: {
+                ...this.state.place,
+                visited: event.target.checked
+            }
         })
+    }
+
+    handleSubmit = event => {
+        event.preventDefault()
+        const place = {...this.state.place}
+        console.log(place)
+        // this.props.addPlace(place)
     }
 
     render() {
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <input name="city" type="text" placeholder="City" onChange={this.handleChange} />
                 <input name="country" type="text" placeholder="Country" onChange={this.handleChange} />
                 <br/>
@@ -38,4 +56,4 @@ class PlacesForm extends Component {
     }
 }
 
-export default PlacesForm;
+export default connect(null, { addPlace })(PlacesForm);
