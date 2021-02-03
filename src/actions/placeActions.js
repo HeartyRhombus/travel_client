@@ -8,3 +8,24 @@ export const fetchPlaces = () => {
             }))
     }
 }
+
+export const addPlace = (place) => {
+    return (dispatch) => {
+        dispatch({type: 'ADD_PLACE'})
+        fetch('http://localhost:3001/places', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(place)
+        })
+            .then(resp => resp.json())
+            .then(place => dispatch({ type: 'PLACE_ADDED', place }))
+    }
+
+    // return {
+    //     type: 'ADD_PLACE',
+    //     place
+    // }
+}
