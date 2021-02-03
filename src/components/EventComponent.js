@@ -2,12 +2,12 @@ import React from 'react'
 
 const EventComponent = ( {event} ) => {
     return (
-        <div>
+        <li>
             {/* {event.place.city}, {event.place.country} */}
             {/* {console.log(event)} */}
-            <br/>
+            {/* <br/> */}
             {event.name} - Visited? {event.visited? "Yup!" : "Nope!"}
-        </div>
+        </li>
     )
 }
 
