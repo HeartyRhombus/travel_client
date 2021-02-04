@@ -48,12 +48,29 @@ class PlacesForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <input name="city" type="text" placeholder="City" value={this.state.place.city} onChange={this.handleChange} />
-                <input name="country" type="text" placeholder="Country" value={this.state.place.country} onChange={this.handleChange} />
+                <input
+                    name="city"
+                    type="text"
+                    placeholder="City"
+                    value={this.state.place.city}
+                    onChange={this.handleChange}
+                />
+                <input
+                    name="country"
+                    type="text"
+                    placeholder="Country"
+                    value={this.state.place.country}
+                    onChange={this.handleChange}
+                />
                 <br/>
                 <label>
                     Been There?
-                    <input name="visited" type="checkbox" value={this.state.place.visited} onChange={this.handleToggle}/>
+                    <input
+                        name="visited"
+                        type="checkbox"
+                        value={this.state.place.visited}
+                        onChange={this.handleToggle}
+                    />
                 </label>
                 <br/>
                 <input type="submit" />
