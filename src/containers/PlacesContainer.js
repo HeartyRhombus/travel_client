@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import PlaceComponent from '../components/PlaceComponent'
 import PlacesForm from './PlacesForm'
 import { fetchPlaces } from '../actions/placeActions'
+import PlaceShow from '../components/PlaceShow'
+
 class PlacesContainer extends Component {
 
     componentDidMount(){
@@ -11,11 +13,13 @@ class PlacesContainer extends Component {
 
     render() {
 
-        const placesList = this.props.places.map( (p, i) => {
+        const placesList = this.props.places.map( p => {
             return (
-                <PlaceComponent key={i} place={p}/>
+                <PlaceComponent key={p.id} place={p} />
             )
         })
+
+        
 
         return (
             <div>
