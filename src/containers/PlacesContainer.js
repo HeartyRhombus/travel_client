@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import PlaceComponent from '../components/PlaceComponent'
 import PlacesForm from './PlacesForm'
+import NavBar from '../components/NavBar'
+import { CardColumns } from 'react-bootstrap'
 
 class PlacesContainer extends Component {
 
@@ -17,15 +19,18 @@ class PlacesContainer extends Component {
 
         return (
             <div>
+                <div>
+                    <NavBar />
+                </div>
                 <hr/>
                 <div>
                     Add A Destination:
                     <PlacesForm />
                 </div>
                 <hr/>
-                <div>
+                <CardColumns>
                     {placesList}
-                </div>
+                </CardColumns>
             </div>
         );
     }
