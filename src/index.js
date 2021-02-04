@@ -13,6 +13,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import App from './App';
 import rootReducer from './reducers/rootReducer'
 import PlacesContainer from './containers/PlacesContainer'
+import PlaceShow from './components/PlaceShow'
 import EventsContainer from './containers/EventsContainer'
 
 const store = createStore(
@@ -23,11 +24,12 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <div>
+      <Switch>
         <Route exact path="/" component={App} />
+        <Route exact path='/places/:id' component={PlaceShow} />
         <Route exact path='/places' component={PlacesContainer} />
         <Route exact path='/events' component={EventsContainer} />
-      </div>
+      </Switch>
     </Router>
   </Provider>,
   document.getElementById('root')
