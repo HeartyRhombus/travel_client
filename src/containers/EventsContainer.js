@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import EventComponent from '../components/EventComponent'
-import { fetchAllEvents } from '../actions/eventActions'
 import EventsForm from '../containers/EventsForm'
+import NavBar from '../components/NavBar'
 
 class EventsContainer extends Component {
-
-    componentDidMount(){
-        this.props.fetchAllEvents()
-    }
 
     render() {
 
@@ -21,6 +17,9 @@ class EventsContainer extends Component {
 
         return (
             <div>
+                <div className="navbar">
+                    <NavBar />
+                </div>
             <h3>Things To Do:</h3>
                 {eventsList}
             <br/>
@@ -39,4 +38,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchAllEvents })(EventsContainer);
+export default connect(mapStateToProps)(EventsContainer);
