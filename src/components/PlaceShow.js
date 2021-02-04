@@ -7,13 +7,13 @@ class PlaceShow extends Component{
 
     render(){
         const id = this.props.match.params.id
-        const selectedEvents = this.props.events.filter(event => event.place_id == id)
-        const selectedPlace = this.props.places.find( place => place.id == id )
+        const selectedEvents = this.props.events.filter(event => event.place_id === parseInt(id))
+        const selectedPlace = this.props.places.find( place => place.id === parseInt(id) )
 
         const thingsToDo = selectedEvents.map( event => {
             return (
                 <div>
-                    <li>
+                    <li key={event.id}>
                         {event.name}
                     </li>
                 </div>
@@ -31,7 +31,6 @@ class PlaceShow extends Component{
                 <hr/>
                 Things To Do In {selectedPlace.city}:
                 {thingsToDo}
-                {console.log(selectedEvents)}
                 <hr/>
                 <div className='addEventForm'>
                     <EventsForm placeId={id}/>
