@@ -13,7 +13,7 @@ class EventsForm extends Component {
         event: {
             name: "",
             visited: false,
-            place_id: 1
+            place_id: this.props.placeId
         }
     }
 
@@ -42,7 +42,7 @@ class EventsForm extends Component {
             ...this.state,
             event: {
                 ...this.state.event,
-                place_id: event.target.value
+                place_id: this.props.placeId || event.target.value
             }
         })
     }
@@ -55,7 +55,7 @@ class EventsForm extends Component {
             event: {
                 name: "",
                 visited: "",
-                place_id: 1
+                place_id: this.placeId
             }
         })
     }
@@ -90,7 +90,7 @@ class EventsForm extends Component {
                 <br/>
                 <label>
                     Where is this?
-                    <select id="places" onChange={this.handleSelect}>
+                    <select id="places" value={this.props.placeId} onChange={this.handleSelect}>
                         {selectPlace}
                     </select>
                 </label>
