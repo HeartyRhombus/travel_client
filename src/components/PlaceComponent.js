@@ -1,10 +1,15 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
-const PlaceComponent = ( {place} ) => {
-    // console.log(place)
+
+const PlaceComponent = ( props ) => {
+
     return (
         <div>
-            {place.city}, {place.country}, {place.visited ? "Yes, I've been here!" : "Not Visted Yet"}
+            <Link to={`/places/${props.place.id}`} >
+            {props.place.id}.
+            {props.place.city}, {props.place.country}, {props.place.visited ? "Yes, I've been here!" : "Not Visted Yet"}
+            </Link>
         </div>
     )
 }
