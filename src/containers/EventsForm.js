@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchPlaces } from '../actions/placeActions'
+import { addEvent } from '../actions/eventActions'
 
 class EventsForm extends Component {
 
@@ -47,9 +48,18 @@ class EventsForm extends Component {
         })
     }
 
-    handleSubmit = event => {
-        event.preventDefault()
+    handleSubmit = e => {
+        e.preventDefault()
         console.log(this.state.event)
+        const event = {...this.state.event}
+        this.props.addEvent(event)
+        this.setState({
+            event: {
+                name: "",
+                visited: "",
+                place_id: 1
+            }
+        })
     }
 
     render() {
@@ -99,4 +109,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchPlaces })(EventsForm);
+export default connect(mapStateToProps, { fetchPlaces, addEvent })(EventsForm);
