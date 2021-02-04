@@ -23,8 +23,9 @@ class PlacesContainer extends Component {
                     <NavBar />
                 </div>
                 <hr/>
-                <div>
-                    Add A Destination:
+                <div style={{textAlign: 'center'}}>
+                    Add a Destination:
+                    <br/>
                     <PlacesForm />
                 </div>
                 <hr/>
