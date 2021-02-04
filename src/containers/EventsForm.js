@@ -12,7 +12,7 @@ class EventsForm extends Component {
         event: {
             name: "",
             visited: false,
-            place_id: null
+            place_id: 1
         }
     }
 
@@ -36,16 +36,32 @@ class EventsForm extends Component {
         })
     }
 
+    handleSelect = event => {
+        console.log(event.target.value)
+        this.setState({
+            ...this.state,
+            event: {
+                ...this.state.event,
+                place_id: event.target.value
+            }
+        })
+    }
+
+    handleSubmit = event => {
+        event.preventDefault()
+        console.log(this.state.event)
+    }
+
     render() {
 
         const selectPlace = this.props.places.map( (place, i) => {
             return (
-                <option value={i}>{place.city}, {place.country}</option>
+                <option key={place.id} value={place.id}>{place.city}, {place.country}</option>
             )
         })
 
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <input
                     name="name"
                     type="text"
@@ -66,7 +82,7 @@ class EventsForm extends Component {
                 <br/>
                 <label>
                     Where is this?
-                    <select id="places">
+                    <select id="places" onChange={this.handleSelect}>
                         {selectPlace}
                     </select>
                 </label>
