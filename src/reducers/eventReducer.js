@@ -15,6 +15,20 @@ const eventReducer = (state = {events: [], loading: false}, action) => {
                 loading: false
             }
 
+        case 'ADD_EVENT':
+            return{
+                ...state,
+                events: [...state.events],
+                loading: true
+            }
+
+        case 'EVENT_ADDED':
+            return{
+                ...state,
+                events: [...state.events, action.event],
+                loading: false
+            }
+
         default:
             return state
     }
