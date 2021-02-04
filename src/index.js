@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import rootReducer from './reducers/rootReducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.css'
+
+import App from './App';
+import rootReducer from './reducers/rootReducer'
 import PlacesContainer from './containers/PlacesContainer'
 import EventsContainer from './containers/EventsContainer'
 
@@ -21,9 +24,9 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <div>
-      <Route exact path="/" component={App} />
-      <Route exact path='/places' component={PlacesContainer} />
-      <Route exact path='/events' component={EventsContainer} />
+        <Route exact path="/" component={App} />
+        <Route exact path='/places' component={PlacesContainer} />
+        <Route exact path='/events' component={EventsContainer} />
       </div>
     </Router>
   </Provider>,
