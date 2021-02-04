@@ -38,7 +38,6 @@ class EventsForm extends Component {
     }
 
     handleSelect = event => {
-        console.log(event.target.value)
         this.setState({
             ...this.state,
             event: {
@@ -50,7 +49,6 @@ class EventsForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        console.log(this.state.event)
         const event = {...this.state.event}
         this.props.addEvent(event)
         this.setState({
