@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import EventComponent from '../components/EventComponent'
-import EventsForm from '../containers/EventsForm'
 import NavBar from '../components/NavBar'
 import { CardColumns } from 'react-bootstrap'
+import { ThingsToDoHeader } from '../components/HeaderDivs'
+import { ThingsToDoForm } from '../components/RenderForms'
 
 class EventsContainer extends Component {
 
@@ -22,19 +23,14 @@ class EventsContainer extends Component {
                     <NavBar />
                 </div>
                 <hr/>
-                <h3 style={{textAlign: 'center', textDecorationLine: 'underline'}}>
-                    Things To Do:
-                </h3>
+                <ThingsToDoHeader />
                 <br/>
                 <CardColumns>
                     {eventsList}
                 </CardColumns>
                 <br/>
                 <hr/>
-                <div style={{textAlign: 'center'}}>
-                    <h5>Have you found something else to do?</h5>
-                    <EventsForm />
-                </div>
+                <ThingsToDoForm />
             </div>
 
         );

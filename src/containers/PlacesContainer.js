@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import PlaceComponent from '../components/PlaceComponent'
-import PlacesForm from './PlacesForm'
 import NavBar from '../components/NavBar'
 import { CardColumns } from 'react-bootstrap'
+import { DestinationsHeader } from '../components/HeaderDivs'
+import { DestinationsForm } from '../components/RenderForms'
 
 class PlacesContainer extends Component {
 
@@ -23,15 +24,13 @@ class PlacesContainer extends Component {
                     <NavBar />
                 </div>
                 <hr/>
-                <div style={{textAlign: 'center'}}>
-                    Add a Destination:
-                    <br/>
-                    <PlacesForm />
-                </div>
-                <hr/>
+                <DestinationsHeader />
+                <br/>
                 <CardColumns>
                     {placesList}
                 </CardColumns>
+                <hr/>
+                <DestinationsForm />
             </div>
         );
     }

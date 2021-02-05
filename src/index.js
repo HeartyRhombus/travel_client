@@ -26,8 +26,8 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" component={App} />
-        <Route exact path='/places/:id' component={PlaceShow} />
         <Route exact path='/places' component={PlacesContainer} />
+        <Route exact path='/places/:id' component={PlaceShow} />
         <Route exact path='/events' component={EventsContainer} />
       </Switch>
     </Router>

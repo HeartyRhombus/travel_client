@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import NavBar from './components/NavBar'
 import { fetchPlaces } from './actions/placeActions'
 import { fetchAllEvents } from './actions/eventActions'
-import PlacesForm from './containers/PlacesForm'
+import { IndexForm } from './components/RenderForms'
+import { IndexHeader } from './components/HeaderDivs'
 
 class App extends Component {
 
@@ -19,10 +20,9 @@ class App extends Component {
         <div className='navbar'>
           <NavBar />
         </div>
-        <h1>My Travel Bucket List!</h1>
+        <IndexHeader />
         <br/>
-        Where would you like to go?
-        <PlacesForm />
+        <IndexForm />
       </div>
     );
   }
