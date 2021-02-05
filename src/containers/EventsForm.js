@@ -5,10 +5,6 @@ import { addEvent } from '../actions/eventActions'
 
 class EventsForm extends Component {
 
-    componentDidMount(){
-        this.props.fetchPlaces()
-    }
-
     state = {
         event: {
             name: "",
@@ -83,7 +79,7 @@ class EventsForm extends Component {
                     <input
                         name="visited"
                         type="checkbox"
-                        value={this.state.event.visted}
+                        checked={this.state.event.visted}
                         onChange={this.handleToggle}
                     />
                 </label>
