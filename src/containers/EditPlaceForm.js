@@ -37,9 +37,8 @@ class EditPlaceForm extends Component {
     handleSubmit = event => {
         event.preventDefault()
         const place = {...this.state.place}
-        console.log(place)
         this.props.updatePlace(place)
-        // return to place show page
+        this.props.history.push(`/places/${place.id}`, place)
     }
 
     render() {
