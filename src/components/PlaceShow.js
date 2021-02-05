@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar'
 import EventsForm from '../containers/EventsForm'
 import { CardColumns, Card } from 'react-bootstrap'
 import { PlacesShowHeader } from '../components/HeaderDivs'
+import { Link } from 'react-router-dom'
 
 class PlaceShow extends Component{
 
@@ -34,6 +35,11 @@ class PlaceShow extends Component{
                     <NavBar />
                 </div>
                 <PlacesShowHeader place={selectedPlace} />
+                <button>
+                    <Link to={`/places/${selectedPlace.id}/edit`}>
+                        Edit
+                    </Link>
+                </button>
                 <hr/>
                 <div>
                     <p style={{textAlign: 'center', fontWeight: 'bold'}}>
