@@ -38,9 +38,18 @@ const placeReducer = (state = {places: [], loading: false}, action) => {
             }
 
         case 'PLACE_UPDATED':
+            const newPlaces = state.places.map( place => {
+                if (place.id === action.place.id){
+                    return action.place
+                } else {
+                    return place
+                }
+                 
+            })
+
             return{
                 ...state,
-                places: [...state.places, action.place],
+                places: newPlaces,
                 loading: false
             }
         // case 'DELETE_PLACE':
