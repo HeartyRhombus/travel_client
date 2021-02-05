@@ -36,7 +36,11 @@ class PlaceShow extends Component{
                 </div>
                 <PlacesShowHeader place={selectedPlace} />
                 <button>
-                    <Link to={`/places/${selectedPlace.id}/edit`}>
+                    <Link to={{
+                        pathname: `/places/${selectedPlace.id}/edit`,
+                        selectedPlace
+                    }}
+                    >
                         Edit
                     </Link>
                 </button>
