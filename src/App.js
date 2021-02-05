@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import NavBar from './components/NavBar'
 import { fetchPlaces } from './actions/placeActions'
 import { fetchAllEvents } from './actions/eventActions'
-import PlacesContainer from './containers/PlacesContainer'
 import PlacesForm from './containers/PlacesForm'
 
 class App extends Component {
@@ -21,8 +20,8 @@ class App extends Component {
           <NavBar />
         </div>
         <h1>My Travel Bucket List!</h1>
+        <br/>
         Where would you like to go?
-        {/* <PlacesContainer/> */}
         <PlacesForm />
       </div>
     );
