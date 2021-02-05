@@ -64,7 +64,7 @@ class PlacesForm extends Component {
                 />
                 <br/>
                 <label>
-                    Been There?
+                    Been There?&nbsp;
                     <input
                         name="visited"
                         type="checkbox"
