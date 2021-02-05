@@ -19,7 +19,7 @@ class PlacesContainer extends Component {
 
         return (
             <div>
-                <div>
+                <div className="navbar">
                     <NavBar />
                 </div>
                 <hr/>
