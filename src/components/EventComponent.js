@@ -7,12 +7,12 @@ const EventComponent = ( {event} ) => {
         <Card style={{ width: '18rem'}} >
             <Card.Body>
                 <Card.Title>
-                    {/* <Link to={`/events/${props.event.id}`} > */}
                         {event.name}
-                    {/* </Link> */}
                 </Card.Title>
                 <Card.Subtitle>
-                    {event.place.city}, {event.place.country}
+                    <Link to={`/places/${event.place.id}`} >
+                        {event.place.city}, {event.place.country}
+                    </Link>
                 </Card.Subtitle>
                 <Card.Text>
                     Visited? {event.visited? "Yup!" : "Nope!"}
