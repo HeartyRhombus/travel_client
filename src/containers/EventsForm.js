@@ -79,7 +79,7 @@ class EventsForm extends Component {
                 />
                 <br/>
                 <label>
-                    Have you seen this? 
+                    Have you seen this?&nbsp;&nbsp;
                     <input
                         name="visited"
                         type="checkbox"
@@ -89,7 +89,7 @@ class EventsForm extends Component {
                 </label>
                 <br/>
                 <label>
-                    Where is this?
+                    Where is this?&nbsp;
                     <select id="places" value={this.props.placeId} onChange={this.handleSelect}>
                         {selectPlace}
                     </select>
