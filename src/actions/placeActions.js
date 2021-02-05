@@ -26,15 +26,20 @@ export const addPlace = (place) => {
 }
 
 export const updatePlace = (place) => {
+    const paramsPlace = {
+        city: place.city,
+        country: place.country,
+        visited: place.visited
+    }
     return (dispatch) => {
         dispatch({ type: 'UPDATE_PLACE' })
         fetch(`http://localhost:3001/places/${place.id}`, {
             method: 'PATCH',
-            header: {
+            headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify(place)
+            body: JSON.stringify(paramsPlace)
         })
             .then(resp => resp.json())
             .then(place => dispatch({ type: 'PLACE_UPDATED', place}))
