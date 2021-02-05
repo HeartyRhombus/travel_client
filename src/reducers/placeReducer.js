@@ -30,8 +30,19 @@ const placeReducer = (state = {places: [], loading: false}, action) => {
                 loading: false
             }
 
-        // case 'UPDATE_PLACE':
-        //     return {}
+        case 'UPDATE_PLACE':
+            return {
+                ...state,
+                places: [...state.places],
+                loading: true
+            }
+
+        case 'PLACE_UPDATED':
+            return{
+                ...state,
+                places: [...state.places, action.place],
+                loading: false
+            }
         // case 'DELETE_PLACE':
         //     return{}
         default:
