@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import NavBar from '../components/NavBar'
 import EventsForm from '../containers/EventsForm'
+import { CardColumns, Card } from 'react-bootstrap'
+import { PlacesShowHeader } from '../components/HeaderDivs'
 
 class PlaceShow extends Component{
 
@@ -12,11 +14,16 @@ class PlaceShow extends Component{
 
         const thingsToDo = selectedEvents.map( event => {
             return (
-                <div>
-                    <li key={event.id}>
-                        {event.name}
-                    </li>
-                </div>
+                <Card style={{ width: '18rem'}} key={event.id}>
+                    <Card.Body>
+                        <Card.Subtitle>
+                            {event.name}
+                        </Card.Subtitle>
+                        <Card.Text>
+                            {event.visited ? "I can check this one off!" : "Still on my list."}
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
             )
         })
 
@@ -26,17 +33,15 @@ class PlaceShow extends Component{
                 <div className="navbar">
                     <NavBar />
                 </div>
-
-                <h3 style={{padding: '25px', textDecorationLine: 'underline' }}>{selectedPlace.city}, {selectedPlace.country}</h3>
+                <PlacesShowHeader place={selectedPlace} />
                 <hr/>
                 <div>
                     <p style={{textAlign: 'center', fontWeight: 'bold'}}>
                         Things To Do In {selectedPlace.city}:
                     </p>
-                    <p style={{padding: '25px'}}>
+                    <CardColumns>
                         {thingsToDo}
-                    </p>
-
+                    </CardColumns>
                 </div>
                 <hr/>
                 <div className='addEventForm' style={{textAlign: 'center'}}>
