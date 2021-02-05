@@ -31,8 +31,10 @@ class EventsContainer extends Component {
                 </CardColumns>
                 <br/>
                 <hr/>
-                <h5>Have you found something else to do?</h5>
-                <EventsForm />
+                <div style={{textAlign: 'center'}}>
+                    <h5>Have you found something else to do?</h5>
+                    <EventsForm />
+                </div>
             </div>
 
         );
