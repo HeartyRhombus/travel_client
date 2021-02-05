@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import EventComponent from '../components/EventComponent'
 import EventsForm from '../containers/EventsForm'
 import NavBar from '../components/NavBar'
+import { CardColumns } from 'react-bootstrap'
 
 class EventsContainer extends Component {
 
@@ -20,12 +21,18 @@ class EventsContainer extends Component {
                 <div className="navbar">
                     <NavBar />
                 </div>
-            <h3>Things To Do:</h3>
-                {eventsList}
-            <br/>
-            <hr/>
-            <h5>Have you found something else to do?</h5>
-            <EventsForm />
+                <hr/>
+                <h3 style={{textAlign: 'center', textDecorationLine: 'underline'}}>
+                    Things To Do:
+                </h3>
+                <br/>
+                <CardColumns>
+                    {eventsList}
+                </CardColumns>
+                <br/>
+                <hr/>
+                <h5>Have you found something else to do?</h5>
+                <EventsForm />
             </div>
 
         );
