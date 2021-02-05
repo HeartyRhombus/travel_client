@@ -15,7 +15,7 @@ const EventComponent = ( {event} ) => {
                     </Link>
                 </Card.Subtitle>
                 <Card.Text>
-                    Visited? {event.visited? "Yup!" : "Nope!"}
+                    {event.visited? "Hope you had a great time!" : "Still need to see."}
                 </Card.Text>
             </Card.Body>
         </Card>
