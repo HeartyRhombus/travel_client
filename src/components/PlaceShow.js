@@ -27,12 +27,20 @@ class PlaceShow extends Component{
                     <NavBar />
                 </div>
 
-                <h3>{selectedPlace.city}, {selectedPlace.country}</h3>
+                <h3 style={{padding: '25px', textDecorationLine: 'underline' }}>{selectedPlace.city}, {selectedPlace.country}</h3>
                 <hr/>
-                Things To Do In {selectedPlace.city}:
-                {thingsToDo}
+                <div>
+                    <p style={{textAlign: 'center', fontWeight: 'bold'}}>
+                        Things To Do In {selectedPlace.city}:
+                    </p>
+                    <p style={{padding: '25px'}}>
+                        {thingsToDo}
+                    </p>
+
+                </div>
                 <hr/>
-                <div className='addEventForm'>
+                <div className='addEventForm' style={{textAlign: 'center'}}>
+                    <h6>What else would you like to do?</h6>
                     <EventsForm placeId={id}/>
                 </div>
             </div>
