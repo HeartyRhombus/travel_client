@@ -35,6 +35,7 @@ class PlacesForm extends Component {
     handleSubmit = event => {
         event.preventDefault()
         const place = {...this.state.place}
+        console.log(place)
         this.props.addPlace(place)
         this.setState({
             place: {
@@ -68,7 +69,7 @@ class PlacesForm extends Component {
                     <input
                         name="visited"
                         type="checkbox"
-                        value={this.state.place.visited}
+                        checked={this.state.place.visited}
                         onChange={this.handleToggle}
                     />
                 </label>
