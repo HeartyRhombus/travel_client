@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css'
@@ -28,9 +28,9 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={App} />
         <Route exact path='/places' component={PlacesContainer} />
-        <Route exact path='/places/:id' component={PlaceShow} />
         <Route exact path='/events' component={EventsContainer} />
         <Route path='/places/:id/edit' component={EditPlaceForm} />
+        <Route path='/places/:id' component={PlaceShow} />
       </Switch>
     </Router>
   </Provider>,
