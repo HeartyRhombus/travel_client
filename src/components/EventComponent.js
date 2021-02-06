@@ -16,6 +16,14 @@ const EventComponent = ( {event} ) => {
                 </Card.Subtitle>
                 <Card.Text>
                     {event.visited? "Hope you had a great time!" : "Still need to see."}
+                    <button>
+                        <Link to={{
+                            pathname: `/events/${event.id}/edit`,
+                            event
+                            }} >
+                            Edit
+                        </Link>
+                    </button>
                 </Card.Text>
             </Card.Body>
         </Card>
