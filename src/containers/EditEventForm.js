@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import NavBar from '../components/NavBar'
-// import { updateEvent } from '../actions/eventActions.js
+import { updateEvent } from '../actions/eventActions.js'
 
 class EditEventForm extends Component {
 
@@ -37,6 +37,8 @@ class EditEventForm extends Component {
         e.preventDefault()
         const event = {...this.state.event}
         console.log(event)
+        this.props.updateEvent(event)
+        this.props.history.push(`/events`)
     }
 
     render() {
@@ -70,4 +72,4 @@ class EditEventForm extends Component {
     }
 }
 
-export default EditEventForm;
+export default connect(null, { updateEvent })(EditEventForm);
