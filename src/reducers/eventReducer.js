@@ -29,6 +29,28 @@ const eventReducer = (state = {events: [], loading: false}, action) => {
                 loading: false
             }
 
+        case 'UPDATE_EVENT':
+            return{
+                ...state,
+                events: [...state.events],
+                loading: true
+            }
+
+        case 'EVENT_UPDATED':
+            const newEvents = state.events.map( event => {
+                if (event.id === action.event.id){
+                    return action.event
+                } else {
+                    return event
+                }
+            })
+
+            return{
+                ...state,
+                events: newEvents,
+                loading: false
+            }
+
         default:
             return state
     }
