@@ -24,3 +24,23 @@ export const addEvent = (event) => {
             .then(event => dispatch({type: 'EVENT_ADDED', event}))
     }
 }
+
+export const updateEvent = (event) => {
+    const paramsEvent = {
+        name: event.name,
+        visited: event.visited
+    }
+    return (dispatch) => {
+        dispatch({ type: 'UPDATE_EVENT'})
+        fetch(`http://localhost:3001/events/${event.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(paramsEvent)
+        })
+            .then(resp => resp.json())
+            .then(event => dispatch({ type: 'EVENT_UPDATED', event}))
+    }
+}
