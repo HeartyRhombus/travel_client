@@ -16,6 +16,7 @@ import PlacesContainer from './containers/PlacesContainer'
 import PlaceShow from './components/PlaceShow'
 import EventsContainer from './containers/EventsContainer'
 import EditPlaceForm from './containers/EditPlaceForm'
+import EditEventForm from './containers/EditEventForm'
 
 const store = createStore(
   rootReducer,
@@ -30,6 +31,7 @@ ReactDOM.render(
         <Route exact path='/places' component={PlacesContainer} />
         <Route exact path='/events' component={EventsContainer} />
         <Route path='/places/:id/edit' component={EditPlaceForm} />
+        <Route path='/events/:id/edit' component={EditEventForm} />
         <Route path='/places/:id' component={PlaceShow} />
       </Switch>
     </Router>
