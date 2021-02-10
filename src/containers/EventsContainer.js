@@ -17,8 +17,13 @@ class EventsContainer extends Component {
             )
         })
 
+        const sortedEvents = eventsList.sort( (a, b) => {
+            return a.props.event.name > b.props.event.name ? 1 : -1
+        })
+
         return (
             <div>
+            {/* {console.log(eventsList.sort( (a, b) => a.props.event.name > b.props.event.name ? 1 : -1))} */}
                 <div className="navbar">
                     <NavBar />
                 </div>
@@ -26,7 +31,7 @@ class EventsContainer extends Component {
                 <ThingsToDoHeader />
                 <br/>
                 <CardColumns>
-                    {eventsList}
+                    {sortedEvents}
                 </CardColumns>
                 <br/>
                 <hr/>
