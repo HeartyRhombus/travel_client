@@ -16,10 +16,15 @@ class PlacesContainer extends Component {
             )
         })
 
+        const sortedPlaces = placesList.sort( (a, b) => {
+            return a.props.place.country > b.props.place.country ? 1 : -1
+        })
+
         
 
         return (
             <div>
+            {/* {console.log(placesList.sort( (a, b) => a.props.place.country > b.props.place.country ? 1 : -1))} */}
                 <div className="navbar">
                     <NavBar />
                 </div>
@@ -27,7 +32,7 @@ class PlacesContainer extends Component {
                 <DestinationsHeader />
                 <br/>
                 <CardColumns>
-                    {placesList}
+                    {sortedPlaces}
                 </CardColumns>
                 <hr/>
                 <DestinationsForm />
