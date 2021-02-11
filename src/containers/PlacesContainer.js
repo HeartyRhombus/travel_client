@@ -35,7 +35,6 @@ class PlacesContainer extends Component {
 
         const sortedPlaces = placesList.sort( (a, b) => {
             return (
-                // a.props.place.country > b.props.place.country ? 1 : -1
                 a.props.place.country.localeCompare(b.props.place.country) || ( a.props.place.city > b.props.place.city ? 1 : -1 )
             )
         })

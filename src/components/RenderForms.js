@@ -55,8 +55,39 @@ export const FilterCountriesForm = props => {
                     id="countries"
                     onChange={props.handleOnSelect}
                 >
-                    <option key='all' value=''></option>
+                    <option key='all' value=''>All Countries</option>
                     {filterOptions}
+                </select>
+            </label>
+        </form>
+    )
+}
+
+export const FilterEventsForm = props => {
+    const eventCountries = props.events.map( event => {
+        return event.place.country
+    })
+
+    const uniqEventCountries = ([...new Set(eventCountries)]).sort()
+
+    const eventFilterOptions = uniqEventCountries.map( (c, i) => {
+        return (
+            <option key={i} value={c}>
+                {c}
+            </option>
+        )
+    })
+
+    return (
+        <form>
+            <label>
+                Filter By Country: &nbsp;
+                <select
+                    id="eventCountries"
+                    onChange={props.handleOnSelect}
+                >
+                    <option key='allEvents' value=''>All Events</option>
+                    {eventFilterOptions}
                 </select>
             </label>
         </form>
