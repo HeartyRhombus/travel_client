@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import EventComponent from '../components/EventComponent'
 import NavBar from '../components/NavBar'
-import { CardColumns } from 'react-bootstrap'
+import { CardDeck, Container, Row } from 'react-bootstrap'
 import { ThingsToDoHeader } from '../components/HeaderDivs'
 import { ThingsToDoForm, FilterEventsForm } from '../components/RenderForms'
 
@@ -52,9 +52,13 @@ class EventsContainer extends Component {
                 />
                     
                 <br/>
-                <CardColumns>
-                    {sortedEvents}
-                </CardColumns>
+                <Container>
+                    <Row md>
+                        <CardDeck>
+                            {sortedEvents}
+                        </CardDeck>
+                    </Row>
+                </Container>
                 <br/>
                 <hr/>
                 <ThingsToDoForm />

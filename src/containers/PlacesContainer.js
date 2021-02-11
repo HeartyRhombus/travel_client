@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import PlaceComponent from '../components/PlaceComponent'
 import NavBar from '../components/NavBar'
-import { CardColumns } from 'react-bootstrap'
+import { CardDeck, Container, Row } from 'react-bootstrap'
 import { DestinationsHeader } from '../components/HeaderDivs'
 import { DestinationsForm } from '../components/RenderForms'
 import { FilterCountriesForm } from '../components/RenderForms'
@@ -53,9 +53,13 @@ class PlacesContainer extends Component {
                     handleOnSelect={this.handleSelect}
                 />
                 <br/>
-                <CardColumns>
-                    {sortedPlaces}
-                </CardColumns>
+                <Container>
+                    <Row md>
+                        <CardDeck>
+                            {sortedPlaces}
+                        </CardDeck>
+                    </Row>
+                </Container>
                 <hr/>
                 <DestinationsForm />
             </div>

@@ -6,7 +6,7 @@ import { Card } from 'react-bootstrap'
 const PlaceComponent = ( props ) => {
 
     return (
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ minWidth: '18rem' }}>
             <Card.Body>
                 <Card.Title>
                     <Link to={`/places/${props.place.id}`} >

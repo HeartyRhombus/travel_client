@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap'
 
 const EventComponent = ( {event} ) => {
     return (
-        <Card style={{ width: '18rem'}} >
+        <Card style={{ minWidth: '18rem'}} >
             <Card.Body>
                 <Card.Title>
                         {event.name}
