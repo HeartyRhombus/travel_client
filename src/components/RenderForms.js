@@ -30,3 +30,35 @@ export const ThingsToDoForm = () => {
     )
 }
 
+export const FilterCountriesForm = props => {
+    const countries = props.places.map( place => {
+        return (
+            place.country
+        )
+    }).sort()
+
+    const uniqCountries = [...new Set(countries)]
+
+    const filterOptions = uniqCountries.map( (c, i) => {
+        return (
+            <option key={i} value={c}>
+                {c}
+            </option>
+        )
+    })
+
+    return (
+        <form>
+            <label>
+                Filter By Country: &nbsp;
+                <select
+                    id="countries"
+                    onChange={props.handleOnSelect}
+                >
+                    <option key='all' value=''></option>
+                    {filterOptions}
+                </select>
+            </label>
+        </form>
+    )
+}

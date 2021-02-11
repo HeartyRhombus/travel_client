@@ -5,31 +5,54 @@ import NavBar from '../components/NavBar'
 import { CardColumns } from 'react-bootstrap'
 import { DestinationsHeader } from '../components/HeaderDivs'
 import { DestinationsForm } from '../components/RenderForms'
+import { FilterCountriesForm } from '../components/RenderForms'
 
 class PlacesContainer extends Component {
 
+    state = {
+        country: ""
+    }
+
+    handleSelect = event => {
+        this.setState({
+            country: event.target.value
+        })
+    }
+
     render() {
 
-        const placesList = this.props.places.map( p => {
+        let placesList
+
+        if (this.state.country !== ""){
+            placesList = this.props.places.filter( place => place.country === this.state.country).map( p => {
+                return <PlaceComponent key={p.id} place={p} />
+            })
+        } else {
+            placesList = this.props.places.map( p => {
+                return <PlaceComponent key={p.id} place={p} />
+            })
+        }
+
+        const sortedPlaces = placesList.sort( (a, b) => {
             return (
-                <PlaceComponent key={p.id} place={p} />
+                // a.props.place.country > b.props.place.country ? 1 : -1
+                a.props.place.country.localeCompare(b.props.place.country) || ( a.props.place.city > b.props.place.city ? 1 : -1 )
             )
         })
 
-        const sortedPlaces = placesList.sort( (a, b) => {
-            return a.props.place.country > b.props.place.country ? 1 : -1
-        })
-
-        
 
         return (
             <div>
-            {/* {console.log(placesList.sort( (a, b) => a.props.place.country > b.props.place.country ? 1 : -1))} */}
                 <div className="navbar">
                     <NavBar />
                 </div>
                 <hr/>
                 <DestinationsHeader />
+                <br/>
+                <FilterCountriesForm
+                    places={this.props.places}
+                    handleOnSelect={this.handleSelect}
+                />
                 <br/>
                 <CardColumns>
                     {sortedPlaces}
