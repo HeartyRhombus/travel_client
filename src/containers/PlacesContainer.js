@@ -8,11 +8,25 @@ import { DestinationsForm } from '../components/RenderForms'
 
 class PlacesContainer extends Component {
 
+    state ={
+        likes: {}
+    }
+
+    handleLikes = event => {
+        console.log(event.target.dataset.id)
+        this.setState( (prevState) => ({
+            likes: {
+                ...prevState.likes,
+                [event.target.dataset.id]: prevState.likes[event.target.dataset.id] ? prevState.likes[event.target.dataset.id] + 1 : 1
+            }
+        }))
+    }
+
     render() {
 
         const placesList = this.props.places.map( p => {
             return (
-                <PlaceComponent key={p.id} place={p} />
+                <PlaceComponent key={p.id} place={p} numberOfLikes={this.state.likes} handleOnLike={this.handleLikes}/>
             )
         })
 

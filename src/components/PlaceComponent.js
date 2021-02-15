@@ -15,6 +15,8 @@ const PlaceComponent = ( props ) => {
                 </Card.Title>
                 <Card.Text>
                 {props.place.visited ? "Yes, I've been here!" : "Not Visted Yet"}
+                <button data-id={props.place.id} onClick={props.handleOnLike}>Likes {props.numberOfLikes[props.place.id] || 0}
+                </button>
                 </Card.Text>
             </Card.Body>
             {/* {props.place.city}, {props.place.country},  */}
