@@ -6,8 +6,8 @@ import { Card } from 'react-bootstrap'
 const PlaceComponent = ( props ) => {
 
     return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Body>
+        <Card style={{ height: '8rem', width: '18rem' }}>
+            {/* <Card.Body> */}
                 <Card.Title>
                     <Link to={`/places/${props.place.id}`} >
                         {props.place.city}, {props.place.country}
@@ -15,10 +15,12 @@ const PlaceComponent = ( props ) => {
                 </Card.Title>
                 <Card.Text>
                 {props.place.visited ? "Yes, I've been here!" : "Not Visted Yet"}
-                <button data-id={props.place.id} onClick={props.handleOnLike}>Likes {props.numberOfLikes[props.place.id] || 0}
-                </button>
                 </Card.Text>
-            </Card.Body>
+                <div className="d-flex mt-bottom">
+                    <button data-id={props.place.id} onClick={props.handleOnLike}>Likes {props.numberOfLikes[props.place.id] || 0}
+                    </button>
+                </div>
+            {/* </Card.Body> */}
             {/* {props.place.city}, {props.place.country},  */}
         </Card>
     )
