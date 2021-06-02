@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap'
 
 const EventComponent = ( {event} ) => {
     return (
-        <Card style={{ width: '18rem'}} >
+        <Card>
             <Card.Body>
                 <Card.Title>
                         {event.name}
@@ -16,6 +16,7 @@ const EventComponent = ( {event} ) => {
                 </Card.Subtitle>
                 <Card.Text>
                     {event.visited? "Hope you had a great time!" : "Still need to see."}
+                    <br/>
                     <br/>
                     <button>
                         <Link to={{
